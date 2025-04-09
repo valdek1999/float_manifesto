@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Манифест Плавающей Точки</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #bdc3c7, #2c3e50);
+            font-family: 'Roboto Mono', monospace;
+            color: #ecf0f1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1.5em;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+            text-shadow: 2px 2px #2980b9;
+            transform: rotate(0.5deg);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .warning {
+            color: #e74c3c;
+            border: 1px dashed #e74c3c;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 5px;
+        }
+
+        .principle {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1em;
+            margin: 1em 0;
+            border-left: 3px solid #2ecc71;
+            transition: transform 0.3s;
+        }
+
+        .principle:hover {
+            transform: translateX(10px);
+        }
+
+        .precision-loss {
+            animation: shake 0.5s infinite;
+            color: #f1c40f;
+        }
+
+        @keyframes glow {
+            50% { text-shadow: 0 0 15px #3498db; }
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+        }
+
+        .binary {
+            position: fixed;
+            opacity: 0.3;
+            user-select: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Генерируем падающий бинарный дождь -->
+    <script>
+        for(let i = 0; i < 50; i++) {
+            const bit = document.createElement('div');
+            bit.className = 'binary';
+            bit.style.left = Math.random() * 100 + 'vw';
+            bit.style.animationDuration = Math.random() * 3 + 2 + 's';
+            bit.textContent = Math.random() > 0.5 ? '0' : '1';
+            document.body.appendChild(bit);
+        }
+    </script>
+
+    <div class="container">
+        <h1>📢 Манифест Плавающей Точки 📉</h1>
+
+        <div class="warning">
+            ⚠️ Внимание! Все числа в этом манифесте приблизительны и могут терять точность при определенных условиях!
+        </div>
+
+        <div class="principle">
+            <h2>📜 Основные принципы:</h2>
+            <ul>
+                <li>0.1 + 0.2 ≈ <span class="precision-loss">0.30000000000000004</span></li>
+                <li>Чем больше число — тем меньше точность (как в жизни)</li>
+                <li>Лучшее сравнение — это приблизительное сравнение</li>
+                <li>NaN ≠ NaN, но мы все равно попробуем</li>
+            </ul>
+        </div>
+
+        <div class="principle">
+            <h2>🚀 10 заповедей Float-разработчика:</h2>
+            <ol>
+                <li>Не жди точности там, где есть экспонента</li>
+                <li>Храни деньги в integer, а проблемы — в float</li>
+                <li>Сравнивай через эпсилон-окрестность (или не сравнивай вообще)</li>
+                <li>Infinity — не предел (в прямом смысле)</li>
+                <li>-0.0 всё равно что 0.0, но обижается</li>
+                <li>Лучшая константа — 1e-6</li>
+                <li>Округлять — значит проявлять заботу</li>
+                <li>Денормализованные числа — твой тихий ужас</li>
+                <li>NaN — это не ошибка, это состояние души</li>
+                <li>Когда сомневаешься — используй double</li>
+            </ol>
+        </div>
+
+        <div class="principle">
+            <h3>📌 Мантра для точных вычислений:</h3>
+            <pre>
+while (problem) {
+    if (Math.abs(a - b) < epsilon) break;
+    a = (a + b) / 2.0;
+    console.log("Всё равно не сойдётся!");
+}
+            </pre>
+        </div>
+
+        <div class="warning">
+            ⚠️ Помни! Использование float для финансовых операций — прямой путь в ад округлений!
+        </div>
+    </div>
+</body>
+</html>
